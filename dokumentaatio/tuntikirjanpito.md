@@ -1,6 +1,6 @@
 # Tuntikirjanpito
 
-* 11.5.: Aihe valittu, repon pystytetty, netbeans-projekti luotu, aihemäärittely kirjoitettu
+* 11.5.: Aihe valittu, repo pystytetty, netbeans-projekti luotu, aihemäärittely kirjoitettu
 * Aika: n. 2,5 h
 
 * 21.5.: Projektista puuttuikin source-kansio, tämän korjaaminen ei onnistunut joten tein uuden projektin.
