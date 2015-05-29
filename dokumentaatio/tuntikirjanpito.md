@@ -8,3 +8,6 @@
 
 * 24.5.: Luokkien suunnittelua
 * Aika: n. 1 h
+
+* 27.5. & 28.5.: Koodausta, tiedonhankintaa. Uuden koodin päivitys repoon ei onnistu..
+* Aika: n. 6 h
