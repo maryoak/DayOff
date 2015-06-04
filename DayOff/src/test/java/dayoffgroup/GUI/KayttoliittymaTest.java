@@ -1,5 +1,5 @@
 
-package dayoffgroup.domain;
+package dayoffgroup.GUI;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -7,17 +7,22 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import javax.swing.JFrame;
+//import java.awt.Container;
+//import dayoffgroup.peli.Valikko; Tarvitaanko näitä?
 
 /**
  *
  * @author hannamari
  */
-public class TorniTest {
+public class KayttoliittymaTest {
+    
+    JFrame frame;
     
     /**
      *
      */
-    public TorniTest() {
+    public KayttoliittymaTest() {
     }
     
     /**
@@ -47,11 +52,12 @@ public class TorniTest {
     @After
     public void tearDown() {
     }
-    
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
+    /**
+     *
+     */
+    @Test
+    public void luokoLuoKomponentitMetodiValikon() {
+        //miksi ei tunnista luoKomponentit() metodia?
+    }
 }

@@ -1,8 +1,12 @@
 
 package dayoffgroup.domain;
 
+/**
+ *
+ * @author hannamari
+ */
 public interface Kuoleva {
     
-   void menetaElamaa();
-    
+    public void menetaElamaa(int i);
+    public void tuhoudu();
 }
