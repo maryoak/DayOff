@@ -3,6 +3,7 @@ package dayoffgroup.GUI;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.Container;
 
 /**
  *
@@ -11,37 +12,33 @@ import java.awt.event.ActionListener;
 public class ValikonKuuntelija implements ActionListener {
     
     private String painikkeenNimi;
-    private Kayttoliittyma kali;
+    Piirtoalusta pa;
     
     /**
-     * 
+     * Konstruktori
      * 
      * @param painikkeenNimi
+     * @param pa
      */
-    public ValikonKuuntelija(String painikkeenNimi, Kayttoliittyma kali) {
+    public ValikonKuuntelija(String painikkeenNimi, Piirtoalusta pa) {
         this.painikkeenNimi = painikkeenNimi;
-        this.kali = kali;
+        this.pa = pa;
     }
     
     @Override
     public void actionPerformed(ActionEvent ae) {
-        if (this.painikkeenNimi.equals("Pelaa")) {
+
+        if (this.painikkeenNimi.equals("Uusi peli")) {
             System.out.println("Pelin pitäisi käynnistyä");
-            kali.setNakyma(1);
-            kali.luoKomponentit(null);
+            pa.setNakyma(1);
         }else if (this.painikkeenNimi.equals("Ohjeet")) {
             System.out.println("Ohjeiden pitäisi tulla");
-            kali.setNakyma(2);
-            kali.luoKomponentit(null);
+            pa.setNakyma(2);
         }else if (this.painikkeenNimi.equals("Poistu")) {
             System.exit(0);
         }
     }
     
-    /**
-     *
-     * @return
-     */
     public String getPainikkeenNimi() {
         return this.painikkeenNimi;
     }

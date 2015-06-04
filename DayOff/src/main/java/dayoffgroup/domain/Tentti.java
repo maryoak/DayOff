@@ -18,8 +18,8 @@ public class Tentti extends Uhka {
      * @param y
      * @param suunta
      */
-    public Tentti(int x, int y, Suunta suunta) {
-        super(x, y, suunta);
+    public Tentti(int x, int y) {
+        super(x, y);
         this.elamaa = 50;
     }
     
@@ -28,20 +28,12 @@ public class Tentti extends Uhka {
         g.setColor(Color.DARK_GRAY);
         g.fillRect(this.x, this.y, 15, 15);
     }
-    /**
-     *
-     * @param rahaa
-     * @return
-     */
+
     @Override
-    public boolean ansaitseRahaa(int rahaa) {
+    public boolean lisaaTililleRahaa(int rahaa) {
         return true;
     }
 
-    /**
-     *
-     * @return
-     */
     @Override
     public boolean tuhoudu() {
         return true;

@@ -8,20 +8,15 @@ import java.awt.Graphics;
  */
 public abstract class Uhka implements Liikkuva {
     protected int x;
-    protected int y;
-    private Suunta suunta;
-  
-    
+    protected int y; 
     /**
      *
      * @param x
      * @param y
-     * @param suunta
      */
-    public Uhka(int x, int y, Suunta suunta) {
+    public Uhka(int x, int y) {
         this.x = x;
         this.y = y;
-        this.suunta = suunta;
     }
     
     public int getX() {
@@ -32,7 +27,8 @@ public abstract class Uhka implements Liikkuva {
         return this.y;
     }
     /**
-     *
+     * Siirtää uhkaa halutuun suuntaan
+     * 
      * @param xmuutos
      * @param ymuutos
      */
@@ -42,23 +38,31 @@ public abstract class Uhka implements Liikkuva {
     }
     
     public void seuraaReittia() {
-        
+       
     }
     
+    /**
+     * Piirtää uhkan.
+     * 
+     * @param g 
+     */
     public abstract void piirra(Graphics g);
     
     /**
-     *
+     * Opiskelijan tilille siirretään rahaa Uhkan tuhoutuessa.
+     * Aliluokat toteuttavat, koska rahamäärä vaihtelee.
+     * 
      * @param rahaa
      * @return
      */
-    public abstract boolean ansaitseRahaa(int rahaa);
+    public abstract boolean lisaaTililleRahaa(int rahaa);
     
     /**
-     *
+     * Lakkauttaa uhkan piirtämisen
+     * 
      * @return
      */
-    public abstract boolean tuhoudu();   //lopettaa piirron
+    public abstract boolean tuhoudu();
    
     public String toString() {
         return "(" + this.x + ", " + this.y + ")";

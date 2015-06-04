@@ -10,10 +10,10 @@ public class Ammus {
     private int x;
     private int y;
     private Torni torni;
-    private Suunta suunta;
     
     /**
-     *
+     * Konstruktori
+     * 
      * @param torni
      */
     public Ammus(Torni torni) {

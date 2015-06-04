@@ -5,18 +5,18 @@ import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 import java.awt.Container;
 import java.awt.Dimension;
+import dayoffgroup.peli.Peli;
+import dayoffgroup.GUI.Piirtoalusta;
 /**
  *
  * @author hannamari
  */
-public class Kayttoliittyma implements Runnable, Paivitettava {
+public class Kayttoliittyma implements Runnable {
     
     JFrame frame;
     public int nakyma;
+    Piirtoalusta piirtoalusta;
     
-    /**
-     *
-     */
     public Kayttoliittyma() {
         
     }
@@ -31,8 +31,10 @@ public class Kayttoliittyma implements Runnable, Paivitettava {
         luoKomponentit(frame.getContentPane());
         
         frame.pack();
+        frame.setResizable(false);
         frame.setLocationRelativeTo(null);          //Asettaa ikkunan keskelle
         frame.setVisible(true);
+        
     }
     
     /**
@@ -41,30 +43,8 @@ public class Kayttoliittyma implements Runnable, Paivitettava {
      */
     public void luoKomponentit(Container container) {
         
-        if (this.nakyma == 0) {
-            Valikko valikko = new Valikko(this);
-            valikko.lisaaValikko(container); 
-        } else if (this.nakyma == 1) {
-            //peli käynnistyy
-            System.out.println("LOADING...");
-        } else if (this.nakyma == 2) {
-            Ohjeet ohjeet = new Ohjeet();
-            ohjeet.naytaOhjeet(container);
-        }
+        Piirtoalusta piirtoalusta = new Piirtoalusta(this);
+        container.add(piirtoalusta);
+    }
 
-    }
-    
-    public void setNakyma(int i) {
-        this.nakyma = i;
-    }
-   
-    
-    /**
-     *
-     */
-    @Override
-    public void paivita() {
-        
-    }
-    
 }

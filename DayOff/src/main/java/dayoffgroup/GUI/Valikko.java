@@ -12,10 +12,12 @@ import javax.swing.JButton;
  */
 public class Valikko {
     
-    Kayttoliittyma kali;
+    Piirtoalusta pa;
+    private String painikkeet;
     
-    public Valikko(Kayttoliittyma kali) {
-        this.kali = kali;
+    public Valikko(Piirtoalusta pa) {
+        this.pa = pa;
+        this.painikkeet = "";
     }
     
     /**
@@ -26,7 +28,7 @@ public class Valikko {
     public void lisaaValikko(Container container) {
         container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
  
-        lisaaPainike("Pelaa", container);
+        lisaaPainike("Uusi peli", container);
         lisaaPainike("Ohjeet", container);
         lisaaPainike("Poistu", container);
     }
@@ -39,10 +41,15 @@ public class Valikko {
      */
     public void lisaaPainike(String nimi, Container container) {
         JButton painike = new JButton(nimi);
-        ValikonKuuntelija painikkeenKuuntelija = 
-                new ValikonKuuntelija(nimi, this.kali);
+        this.painikkeet = "" + nimi;
+        ValikonKuuntelija painikkeenKuuntelija = new ValikonKuuntelija(nimi, pa);
         painike.addActionListener(painikkeenKuuntelija);
         painike.setAlignmentX(Component.CENTER_ALIGNMENT);
         container.add(painike);
-    }   
+    }  
+    
+    @Override
+    public String toString() {
+        return "Valikkoon sisältyvät painikkeet" + this.painikkeet;
+    }
 }

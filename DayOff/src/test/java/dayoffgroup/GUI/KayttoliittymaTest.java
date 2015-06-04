@@ -1,6 +1,8 @@
 
 package dayoffgroup.GUI;
 
+import java.awt.Container;
+import java.awt.Dimension;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -8,6 +10,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import javax.swing.JFrame;
+import javax.swing.WindowConstants;
 //import java.awt.Container;
 //import dayoffgroup.peli.Valikko; Tarvitaanko näitä?
 
@@ -17,7 +20,9 @@ import javax.swing.JFrame;
  */
 public class KayttoliittymaTest {
     
+    Kayttoliittyma kali;
     JFrame frame;
+    Container container;
     
     /**
      *
@@ -44,6 +49,17 @@ public class KayttoliittymaTest {
      */
     @Before
     public void setUp() {
+        frame = new JFrame("DayOff Tower Defence!");
+        frame.setPreferredSize(new Dimension(700, 600));
+        
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        
+        kali.luoKomponentit(frame.getContentPane());
+        
+        frame.pack();
+        frame.setResizable(false);
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
     }
     
     /**
@@ -52,12 +68,8 @@ public class KayttoliittymaTest {
     @After
     public void tearDown() {
     }
+    
 
-    /**
-     *
-     */
-    @Test
-    public void luokoLuoKomponentitMetodiValikon() {
-        //miksi ei tunnista luoKomponentit() metodia?
-    }
+    
+    
 }

@@ -22,81 +22,48 @@ public class ValikkoTest {
     
     Valikko valikko;
     Container container;
+    Piirtoalusta pa;
+    Kayttoliittyma kali;
     
-    /**
-     *
-     */
+
     public ValikkoTest() {
     }
     
-    /**
-     *
-     */
+
     @BeforeClass
     public static void setUpClass() {
     }
     
-    /**
-     *
-     */
+
     @AfterClass
     public static void tearDownClass() {
     }
     
-    /**
-     *
-     */
+
     @Before
     public void setUp() {
-        Kayttoliittyma kali = new Kayttoliittyma();
-        valikko = new Valikko(kali);
+        kali = new Kayttoliittyma();
+        pa = new Piirtoalusta(kali);
+        valikko = new Valikko(pa);
     }
     
-    /**
-     *
-     */
+
     @After
     public void tearDown() {
     }
 
-    /**
-     *
-     */
-    @Test
-    public void onkoValikkoTyhja() {
-        
-    }
-    
-    /**
-     *
-     */
     @Test
     public void luokoLisaaValikkoMetodiPainikkeita() {
         valikko.lisaaValikko(container);
         assertTrue(container.getComponentCount()>0);
     }    
     
-    /**
-     *
-     */
     @Test
     public void luokoLisaaPainikeMetodiUudenPainikkeen() {
-        valikko.lisaaValikko(container);
-        assertTrue(container.getComponentCount()>0);
-    }
-    
-    /**
-     *
-     */
-    @Test
-    public void luokoLisaaPainikeMetodiUudenValikonKuuntelijan() {
+        int i = container.getComponentCount();
         valikko.lisaaPainike("testi", container);
-        
+        assertTrue(container.getComponentCount()>i);
     }
- 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
+   
+
 }
