@@ -11,3 +11,6 @@
 
 * 27.5. & 28.5.: Koodausta, tiedonhankintaa. Uuden koodin päivitys repoon ei onnistu..
 * Aika: n. 6 h
+
+* 31.5.: Koodausta, reposäätöä ja korjaantuihan se ongelma vihdoin! Uusi koodi oli uuden projektinluonnin myötä mennyt toiseen samannimiseen kansioon jota git ei tunnistanut.. Tein myös koodikatselmoinnin annetusta projektista ja päivitin omaa aihekuvausta.
+* Aika: n. 4,5 h
