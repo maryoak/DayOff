@@ -10,17 +10,15 @@ import java.awt.Color;
  */
 public class Opiskelija {
     private int elamaa;
-    private Tili tili;
     private int x;
     private int y;
     
     /**
      * Parametritön konstruktori.
-     * Opiskelijalla luotaessa uusi tili ja elämää 1000.
+     * Opiskelijalla luotaessa elämää 1000.
      */
     public Opiskelija() {
         this.elamaa = 1000;
-        this.tili = new Tili();
         this.x = 400;
         this.y = 400;       
     }
