@@ -14,7 +14,7 @@ public class Piirtoalusta extends JPanel implements Runnable, Paivitettava {
     
     public Thread thread = new Thread(this);
     public Kayttoliittyma kali;
-    public static Kentta kentta;
+    //public static Kentta kentta;
     public static Peli peli;
     public boolean ensimmainen = true;
     public int nakyma;
@@ -30,10 +30,10 @@ public class Piirtoalusta extends JPanel implements Runnable, Paivitettava {
         this.kali = kali;
     }
 
-    public void alusta() {
-        peli = new Peli();
-        kentta = new Kentta();
-    }
+    //public void alusta() {
+    //    peli = new Peli();
+    //    kentta = new Kentta();
+    //}
     
     
     /**
@@ -61,7 +61,34 @@ public class Piirtoalusta extends JPanel implements Runnable, Paivitettava {
             valikko.lisaaValikko(this.kali.frame.getContentPane());
         } else if (this.nakyma == 1) {
             //peli "käynnistyy"
-            kentta.piirra(g);
+            
+            peli = new Peli();
+            //kentta.piirra(g); ei toimi vielä, vanha alusta alla
+            g.setColor(Color.green);
+            g.fillRect(0, 0, this.kali.frame.getWidth(), this.kali.frame.getHeight());
+            
+            g.setColor(Color.WHITE);
+            
+            for (int x = 0; x < 16; x++){
+                for ( int y = 0; y < 15; y++) {
+                    g.drawRect(30 + (x * 30), 30 + (y * 30), 30, 30);
+                }
+            }
+            // Opiskelijan elämän ja tilitilanteen osoittavat boksit
+            g.setColor(Color.BLACK);
+            g.fillRect(560, 30, 100, 30);
+            g.fillRect(560, 70, 100, 30);
+            
+            g.setColor(Color.red);
+            g.drawString("LAIFFII:  " + peli.opiskelija.getElamaa(), 565, 50);
+            
+            g.setColor(Color.yellow);
+            g.drawString("MASSIT:  " + peli.getTili(), 565, 90);
+            
+            // Tornilista
+            
+            g.setColor(Color.black);   
+            
         } else if (this.nakyma == 2) {
             Ohjeet ohjeet = new Ohjeet();
             //näyttää ohjeet kunhan valmistuu
