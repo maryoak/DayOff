@@ -18,3 +18,5 @@
 * 3.6. & 4.6.: Koodausta, suunnittelua, uudelleen koodamista ja testaamista. Tällä kertaa ongelma Pit-tiedoston luomisessa, aikaleimainen kansio syntyy mutta tiedosto ei. Päivitin luokkakaaviota ja loin hvyin alustavan sekvenssikaavion joka näyttää tämänhetkiset kutsut käynnistyksestä ensimmäiseen klikkaukseen eli valikkoon.
 * Aika: n. 11h
 
+* 12.6.: Git ei taaskaan suostu pushaamaan. En jaksa enää tänään selvittää ongelmaa. Tentti huomenna. Toivo kateissa. Kuka puolustaa koodaajaa stressiltä?
+* Aika: n. 6h
