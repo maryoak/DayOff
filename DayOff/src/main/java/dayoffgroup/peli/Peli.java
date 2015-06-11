@@ -10,7 +10,7 @@ import dayoffgroup.GUI.Piirtoalusta;
  */
 public class Peli {
     
-    private Opiskelija opiskelija;
+    public Opiskelija opiskelija;
     private Tili tili;
     private int taso;
     
@@ -18,6 +18,10 @@ public class Peli {
         this.opiskelija = new Opiskelija();
         this.tili = new Tili();
         this.taso = 1;   
+    }
+    
+    public Tili getTili() {
+        return this.tili;
     }
     
     public int getTaso() {

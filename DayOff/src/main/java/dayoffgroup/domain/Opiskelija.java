@@ -9,7 +9,7 @@ import java.awt.Color;
  * @author hannamari
  */
 public class Opiskelija {
-    private int elamaa;
+    public int elamaa;
     private int x;
     private int y;
     
@@ -22,6 +22,16 @@ public class Opiskelija {
         this.x = 400;
         this.y = 400;       
     }
+    
+    public int getElamaa() {
+        return this.elamaa;
+    }
+    
+    /**
+     * Opiskelija piirtää itsensä.
+     * 
+     * @param g 
+     */
     
     public void piirra(Graphics g){
         g.fillOval(0, 0, 30, 30);

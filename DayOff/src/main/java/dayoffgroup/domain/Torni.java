@@ -1,40 +1,40 @@
 
 package dayoffgroup.domain;
 
+import java.awt.Graphics;
+
 /**
  *
  * @author hannamari
  */
-public class Torni {
+public abstract class Torni {
     private int x;
     private int y;
-    private Ammus ammus;
     
     /**
-     *
-     * @param x
-     * @param y
-     * @param ammus
+     * Parametritön konstruktori.
+     * 
      */
-    public Torni(int x, int y, Ammus ammus) {
-        this.x = x;
-        this.y = y;
-        this.ammus = ammus;
+    public Torni() {
+        this.x = 0;
+        this.y = 0;
     }
     
-    /**
-     *
-     * @return
-     */
+    public abstract void piirra(Graphics g);
+
     public int getX() {
         return this.x;
     }
     
-    /**
-     *
-     * @return
-     */
     public int getY() {
         return this.y;
     }
+    
+    public void setX(int x) {
+        this.x = x; 
+    }
+    
+    public void setY(int y) {
+        this.y = y; 
+    }    
 }

@@ -12,10 +12,12 @@ import java.awt.Color;
  */
 public class Piirtoalusta extends JPanel implements Runnable, Paivitettava {
     
-    Thread thread = new Thread(this);
-    Kayttoliittyma kali;
-    Peli peli;
-    int nakyma;
+    public Thread thread = new Thread(this);
+    public Kayttoliittyma kali;
+    public static Kentta kentta;
+    public static Peli peli;
+    public boolean ensimmainen = true;
+    public int nakyma;
     
     private int fps;
     /**
@@ -24,19 +26,29 @@ public class Piirtoalusta extends JPanel implements Runnable, Paivitettava {
      * @param kali
      */
     public Piirtoalusta(Kayttoliittyma kali) {
-        this.kali = kali;
-        
         thread.start();
+        this.kali = kali;
     }
 
+    public void alusta() {
+        peli = new Peli();
+        kentta = new Kentta();
+    }
+    
+    
     /**
      * Piirtää näkymät.
-     * Fps-arvot saa näkyviin poistamalla kommenttimerkit kolmannelta riviltä
+     * Näkymä 0 = valikko
+     * Näkymä 1 = peli
+     * Näkymä 2 = ohjeet
+     * Fps-arvot saa näkyviin poistamalla kommenttimerkit metodin
+     * kolmannelta riviltä
      * 
      * @param g 
      */
     @Override
     public void paintComponent(Graphics g) {
+        
         super.paintComponent(g);
         g.clearRect(0, 0, this.kali.frame.getWidth(), this.kali.frame.getHeight());
      // g.drawString("" + fps, 20, 20);
@@ -44,26 +56,30 @@ public class Piirtoalusta extends JPanel implements Runnable, Paivitettava {
         g.drawString("DAYOFF TOWER DEFENCE opening soon!", 250, 250);
         
         if (this.nakyma == 0) {
+            //luo valikon
             Valikko valikko = new Valikko(this);
             valikko.lisaaValikko(this.kali.frame.getContentPane());
-            //luo valikon
         } else if (this.nakyma == 1) {
-            g.setColor(Color.green);
-            g.fillRect(0, 0, this.kali.frame.getWidth(), this.kali.frame.getHeight());
             //peli "käynnistyy"
+            kentta.piirra(g);
         } else if (this.nakyma == 2) {
             Ohjeet ohjeet = new Ohjeet();
-            //näyttää ohjeet...
+            //näyttää ohjeet kunhan valmistuu
         }
     }
     
     @Override
     public void run() {
-
+        
         long lastFrame = System.currentTimeMillis();
         int frames = 0;
         
         while(true) {
+         
+            if (!this.ensimmainen) {
+              
+            }
+            
             paivita();
             frames++;
             if (System.currentTimeMillis() - 1000 >= lastFrame){

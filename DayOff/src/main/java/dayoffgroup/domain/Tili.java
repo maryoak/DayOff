@@ -24,4 +24,8 @@ public class Tili {
     public void setRahaa(int rahaa) {
         this.rahat += rahaa;
     }
+    
+    public String toString() {
+        return "" + this.rahat;
+    }
 }

@@ -50,7 +50,7 @@ public abstract class Uhka implements Liikkuva {
     
     /**
      * Opiskelijan tilille siirretään rahaa Uhkan tuhoutuessa.
-     * Aliluokat toteuttavat, koska rahamäärä vaihtelee.
+     * Aliluokat toteuttavat, koska rahamäärä vaihtelee uhkasta riippuen.
      * 
      * @param rahaa
      * @return
