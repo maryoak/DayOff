@@ -6,7 +6,7 @@ import java.util.Scanner;
 import dayoffgroup.peli.Peli;
 
 /**
- *
+ * Luokka lukee ja sijoittaa annetusta tiedostosta id-tunnukset ruuduille.
  */
 public class Rata {
     

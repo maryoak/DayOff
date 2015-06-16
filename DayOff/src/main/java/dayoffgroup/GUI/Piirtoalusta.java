@@ -13,7 +13,7 @@ import java.awt.Point;
 public class Piirtoalusta extends JPanel implements Runnable, Paivitettava {
     
     public Thread thread = new Thread(this);
-    public Kayttoliittyma kali;
+    public static Kayttoliittyma kali;
     public static Peli peli;
     
     public static int korkeus;
