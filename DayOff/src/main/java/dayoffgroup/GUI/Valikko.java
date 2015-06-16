@@ -7,8 +7,8 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 
 /**
- *
- * @author hannamari
+ * Luo ennalta määrätyn aloitusvalikon.
+ * Valikolla on painikkeita ja painikkeilla omat kuuntelijat.
  */
 public class Valikko {
     
@@ -34,7 +34,7 @@ public class Valikko {
     }
     
     /**
-     * Luo painikkeen valikkoon.
+     * Luo painikkeen ja sen kuuntelijan valikkoon.
      * 
      * @param nimi
      * @param container

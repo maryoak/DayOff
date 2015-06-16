@@ -39,16 +39,16 @@ public class HiirenKuuntelija implements MouseListener, MouseMotionListener {
 
     @Override
     public void mouseDragged(MouseEvent e) {
-        Piirtoalusta.hiiri = new Point((e.getX()) + ((Piirtoalusta.kali.leveys - 
-                Piirtoalusta.leveys) / 2), (e.getY()) + ((Piirtoalusta.kali.korkeus) - 
-                        (Piirtoalusta.korkeus)) - (Piirtoalusta.kali.leveys - Piirtoalusta.leveys) /2);
+        Piirtoalusta.hiiri = new Point((e.getX()) + ((Kayttoliittyma.koko.width - 
+                Piirtoalusta.leveys) / 2), (e.getY()) + ((Kayttoliittyma.koko.height) - 
+                        (Piirtoalusta.korkeus)) - (Kayttoliittyma.koko.width - Piirtoalusta.leveys) /2);
     }
 
     @Override
     public void mouseMoved(MouseEvent e) {
-        Piirtoalusta.hiiri = new Point((e.getX()) + ((Piirtoalusta.kali.leveys - 
-                Piirtoalusta.leveys) / 2), (e.getY()) + ((Piirtoalusta.kali.korkeus) - 
-                        (Piirtoalusta.korkeus)) - (Piirtoalusta.kali.leveys - Piirtoalusta.leveys) /2);
+        Piirtoalusta.hiiri = new Point((e.getX()) + ((Kayttoliittyma.koko.width - 
+                Piirtoalusta.leveys) / 2), (e.getY()) + ((Kayttoliittyma.koko.height) - 
+                        (Piirtoalusta.korkeus)) - (Kayttoliittyma.koko.width - Piirtoalusta.leveys) /2);    
     }
     
 }

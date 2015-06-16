@@ -15,7 +15,7 @@ public class Peli {
     public Opiskelija opiskelija;
     private Tili tili;
     private Rata rata;
-    public  static Kentta kentta;
+    public static Kentta kentta;
     public Sivupalkki kauppa;
     
     public Peli() {

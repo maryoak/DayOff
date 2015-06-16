@@ -6,8 +6,7 @@ import java.awt.event.ActionListener;
 import java.awt.Container;
 
 /**
- *
- * @author hannamari
+ * Kuuntelee aloitusvalikon ennaltamäärättyjä painikkeita.
  */
 public class ValikonKuuntelija implements ActionListener {
     
@@ -25,6 +24,11 @@ public class ValikonKuuntelija implements ActionListener {
         this.pa = pa;
     }
     
+    /**
+     * Metodi määrää, mitä painikkeet tekevät.
+     * 
+     * @param ae 
+     */
     @Override
     public void actionPerformed(ActionEvent ae) {
 

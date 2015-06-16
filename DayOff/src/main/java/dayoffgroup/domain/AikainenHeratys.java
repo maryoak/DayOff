@@ -5,7 +5,7 @@ import java.awt.Graphics;
 import java.awt.Color;
 
 /**
- *
+ * Luokka on yksi Uhkan ilmentymistä.
  * @author hannamari
  */
 public class AikainenHeratys extends Uhka {

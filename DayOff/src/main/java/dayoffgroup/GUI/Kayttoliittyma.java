@@ -13,8 +13,7 @@ public class Kayttoliittyma implements Runnable {
     
     JFrame frame;
     Piirtoalusta piirtoalusta;
-    public static int leveys = 700;
-    public static int korkeus = 600;
+    public static Dimension koko = new Dimension(700, 600); 
     
     public Kayttoliittyma() {
         
@@ -23,7 +22,7 @@ public class Kayttoliittyma implements Runnable {
     @Override
     public void run() {
         frame = new JFrame("DayOff Tower Defence!");
-        frame.setPreferredSize(new Dimension(leveys, korkeus));
+        frame.setPreferredSize(koko);
         
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         
