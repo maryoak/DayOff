@@ -13,7 +13,8 @@ public class ParasKaveri extends Torni {
     private Ammus ammus;
     private int hinta;
     
-    public ParasKaveri() {
+    public ParasKaveri(int id) {
+        super(id);
         this.ammus = new Ammus(this);
         this.hinta = 50;
     }
@@ -27,7 +28,7 @@ public class ParasKaveri extends Torni {
     @Override
     public void piirra(Graphics g) {
         g.setColor(Color.ORANGE);
-        g.fillOval(this.getX(), this.getY(), 25, 25);
+      //  g.fillOval(this.getX(), this.getY(), 25, 25);
     }
     
 }

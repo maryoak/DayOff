@@ -5,14 +5,13 @@ import java.awt.Graphics;
 
 /** 
  * Luokka luo alustan pelille.
- * 
- * @author hannamari
+ *
  */
 public class Kentta {
     
-    public int leveys = 16;
-    public int korkeus = 14;
-    public int ruudunKoko = 30;
+    public int leveys = 15;
+    public int korkeus = 12;
+    public int ruudunKoko = 40;
     
     public Ruutu[][] ruutu;
     
@@ -21,12 +20,12 @@ public class Kentta {
     }
     
     public void alusta(){
-        ruutu = new Ruutu[leveys][korkeus];
+        ruutu = new Ruutu[korkeus][leveys];
         for (int y = 0; y < ruutu.length; y++) {
             for ( int x = 0; x < ruutu[0].length; x++) {
-               ruutu[y][x] = new Ruutu(x * ruudunKoko, y * ruudunKoko, ruudunKoko, 0);
+               ruutu[y][x] = new Ruutu(x * ruudunKoko, y * ruudunKoko, ruudunKoko, ruudunKoko, Arvo.maaRuoho, Arvo.ilmaIlma);
             }
-        }
+        }    
     }
     
     public void piirra(Graphics g) {

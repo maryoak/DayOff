@@ -5,8 +5,7 @@ import java.awt.Graphics;
 import java.awt.Color;
 
 /**
- *
- * @author hannamari
+ * Luokka piirtää ja hallinnoi pelin Opiskelija hahmoa.
  */
 public class Opiskelija {
     public int elamaa;
@@ -37,9 +36,12 @@ public class Opiskelija {
         g.fillOval(0, 0, 30, 30);
         g.setColor(Color.orange);
     }
-
+    
+    /**
+     * Metodi päättää pelin.
+     */
     public void tuhoudu() {
-        // peli päättyy
+      
     }
     
 }

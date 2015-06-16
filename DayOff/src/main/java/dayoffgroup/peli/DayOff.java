@@ -11,7 +11,7 @@ import javax.swing.SwingUtilities;
 public class DayOff {
     
     /**
-     *
+     * Main-metodi käynnistää käyttöliittymän.
      * @param args
      */
     public static void main(String[] args) {

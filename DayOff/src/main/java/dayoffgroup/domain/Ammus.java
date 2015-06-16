@@ -17,7 +17,7 @@ public class Ammus {
      * @param torni
      */
     public Ammus(Torni torni) {
-        this.x = torni.getX();
-        this.y = torni.getY();
+       // this.x = torni.getX();
+      //  this.y = torni.getY();
     }
 }

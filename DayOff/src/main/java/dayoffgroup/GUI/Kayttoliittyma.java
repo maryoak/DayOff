@@ -5,8 +5,6 @@ import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 import java.awt.Container;
 import java.awt.Dimension;
-import dayoffgroup.peli.Peli;
-import dayoffgroup.GUI.Piirtoalusta;
 /**
  *
  * @author hannamari
@@ -14,8 +12,8 @@ import dayoffgroup.GUI.Piirtoalusta;
 public class Kayttoliittyma implements Runnable {
     
     JFrame frame;
-    public int nakyma;
     Piirtoalusta piirtoalusta;
+    public static Dimension koko = new Dimension(700, 600); 
     
     public Kayttoliittyma() {
         
@@ -24,7 +22,7 @@ public class Kayttoliittyma implements Runnable {
     @Override
     public void run() {
         frame = new JFrame("DayOff Tower Defence!");
-        frame.setPreferredSize(new Dimension(700, 600));
+        frame.setPreferredSize(koko);
         
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         
@@ -43,7 +41,7 @@ public class Kayttoliittyma implements Runnable {
      */
     public void luoKomponentit(Container container) {
         
-        Piirtoalusta piirtoalusta = new Piirtoalusta(this);
+        piirtoalusta = new Piirtoalusta(this);
         container.add(piirtoalusta);
     }
 
