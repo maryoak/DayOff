@@ -1,28 +1,37 @@
 
 package dayoffgroup.GUI;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 
 /**
- *
- * @author hannamari
+ * Luokka määrittelee ruudun joista kenttä rakentuu.
  */
 public class Ruutu extends Rectangle {
     
-    private int id;
-    private int x;
-    private int y;
-    private int leveys = 30;
-    private int korkeus = 30;
+    public int maaID;
+    public int ilmaID;
     
     
-    public Ruutu(int x, int y, int sivunPituus, int id) {
-        setBounds(x, y, sivunPituus, sivunPituus);
-        this.id = id;
+    public Ruutu(int x, int y, int leveys, int korkeus, int maaID, int ilmaID) {
+        setBounds(x, y, leveys, korkeus);
+        this.maaID = maaID;
+        this.ilmaID = ilmaID;
     }
     
     public void piirraRuutu(Graphics g){
-        g.drawRect(x, y, leveys, korkeus);
+        
+        if (this.maaID == 0) {
+            g.setColor(Color.green);
+            g.fillRect(x, y, width, height);
+        } else if (this.maaID == 1){
+            g.setColor(Color.orange);
+            g.fillRect(x, y, width, height);
+        }
+        
+        if (ilmaID != Arvo.ilmaIlma) {
+            
+        }
     }
 }

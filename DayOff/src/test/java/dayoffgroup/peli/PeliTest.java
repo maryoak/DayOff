@@ -31,16 +31,6 @@ public class PeliTest {
     public void tearDown() {
     }
     
-    @Test
-    public void onkoPelinTasoLuotaessaYksi() {
-        assertTrue(peli.getTaso() == 1);
-    }
-    
-    @Test
-    public void kasvattaakoSeuraavaTasoMetodiTasonYhdella() {
-        peli.seuraavaTaso();
-        assertTrue(peli.getTaso() == 2);    
-    }
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
     //

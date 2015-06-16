@@ -1,5 +1,5 @@
 
-package dayoffgroup.GUI;
+package dayoffgroup.domain;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -7,18 +7,14 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import dayoffgroup.GUI.Kayttoliittyma;
 
 /**
  *
  * @author hannamari
  */
-public class PiirtoalustaTest {
+public class AmmusTest {
     
-    Piirtoalusta pa;
-    Kayttoliittyma kali;
-    
-    public PiirtoalustaTest() {
+    public AmmusTest() {
     }
     
     @BeforeClass
@@ -31,13 +27,15 @@ public class PiirtoalustaTest {
     
     @Before
     public void setUp() {
-        kali = new Kayttoliittyma();
-        pa = new Piirtoalusta(kali);
     }
     
     @After
     public void tearDown() {
     }
-     
 
+    // TODO add test methods here.
+    // The methods must be annotated with annotation @Test. For example:
+    //
+    // @Test
+    // public void hello() {}
 }

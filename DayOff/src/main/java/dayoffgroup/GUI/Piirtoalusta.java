@@ -5,20 +5,24 @@ import javax.swing.JPanel;
 import java.awt.Graphics;
 import dayoffgroup.peli.Peli;
 import java.awt.Color;
-
+import java.awt.Point;
 /**
- *
- * @author hannamari
+ * Luokka luo ja päivittää GUI:n eri näkymiä.
+ * 
  */
 public class Piirtoalusta extends JPanel implements Runnable, Paivitettava {
     
     public Thread thread = new Thread(this);
     public Kayttoliittyma kali;
-    //public static Kentta kentta;
     public static Peli peli;
-    public boolean ensimmainen = true;
-    public int nakyma;
     
+    public static int korkeus;
+    public static int leveys;
+    
+    public static Point hiiri = new Point(0,0);
+    
+    private boolean ensimmainen = true;
+    private int nakyma = 0;
     private int fps;
     /**
      * Konstruktori yhdellä parametrilla
@@ -29,98 +33,76 @@ public class Piirtoalusta extends JPanel implements Runnable, Paivitettava {
         thread.start();
         this.kali = kali;
     }
-
-    //public void alusta() {
-    //    peli = new Peli();
-    //    kentta = new Kentta();
-    //}
-    
-    
+    /**
+     * Alustaa uuden pelin.
+     */
+    public void alusta() {
+        peli = new Peli();
+    }
     /**
      * Piirtää näkymät.
-     * Näkymä 0 = valikko
+     * Näkymä 0 = aloitusnäkymä
      * Näkymä 1 = peli
      * Näkymä 2 = ohjeet
      * Fps-arvot saa näkyviin poistamalla kommenttimerkit metodin
-     * kolmannelta riviltä
+     * viimeiseltä riviltä
      * 
      * @param g 
      */
     @Override
     public void paintComponent(Graphics g) {
-        
-        super.paintComponent(g);
-        g.clearRect(0, 0, this.kali.frame.getWidth(), this.kali.frame.getHeight());
-     // g.drawString("" + fps, 20, 20);
-        g.setColor(Color.orange);
-        g.drawString("DAYOFF TOWER DEFENCE opening soon!", 250, 250);
-        
-        if (this.nakyma == 0) {
-            //luo valikon
-            Valikko valikko = new Valikko(this);
-            valikko.lisaaValikko(this.kali.frame.getContentPane());
-        } else if (this.nakyma == 1) {
-            //peli "käynnistyy"
+       
+        g.clearRect(0, 0, getWidth(), getHeight());    
             
-            peli = new Peli();
-            //kentta.piirra(g); ei toimi vielä, vanha alusta alla
-            g.setColor(Color.green);
-            g.fillRect(0, 0, this.kali.frame.getWidth(), this.kali.frame.getHeight());
-            
-            g.setColor(Color.WHITE);
-            
-            for (int x = 0; x < 16; x++){
-                for ( int y = 0; y < 15; y++) {
-                    g.drawRect(30 + (x * 30), 30 + (y * 30), 30, 30);
-                }
-            }
-            // Opiskelijan elämän ja tilitilanteen osoittavat boksit
-            g.setColor(Color.BLACK);
-            g.fillRect(560, 30, 100, 30);
-            g.fillRect(560, 70, 100, 30);
-            
-            g.setColor(Color.red);
-            g.drawString("LAIFFII:  " + peli.opiskelija.getElamaa(), 565, 50);
-            
-            g.setColor(Color.yellow);
-            g.drawString("MASSIT:  " + peli.getTili(), 565, 90);
-            
-            // Tornilista
-            
-            g.setColor(Color.black);   
-            
-        } else if (this.nakyma == 2) {
-            Ohjeet ohjeet = new Ohjeet();
-            //näyttää ohjeet kunhan valmistuu
+        if (this.ensimmainen) {
+            leveys = getWidth();
+            korkeus = getHeight();
+            alusta();     
+            this.ensimmainen = false;
         }
+        
+        if (this.nakyma == 0) { 
+        //avaa aloitusnäkymän      
+        //    super.paintComponent(g);
+            g.setColor(Color.orange);
+            g.drawString("DAYOFF TOWER DEFENCE available soon!", 250, 250);
+            Valikko valikko = new Valikko(this);
+            valikko.lisaaValikko(this.kali.frame.getContentPane());  
+        } else if (this.nakyma == 1) {
+        //peli "käynnistyy"
+            peli.kentta.piirra(g);
+            peli.kauppa.piirra(g);
+        } else if (this.nakyma == 2) {
+        //näyttää ohjeet kunhan valmistuu
+            Ohjeet ohjeet = new Ohjeet();
+        } 
+        
+        g.drawString("" + fps, 20, 20);
     }
     
     @Override
     public void run() {
         
         long lastFrame = System.currentTimeMillis();
-        int frames = 0;
+        int frames = 0;        
         
         while(true) {
-         
-            if (!this.ensimmainen) {
-              
-            }
-            
+  
             paivita();
             frames++;
+            
             if (System.currentTimeMillis() - 1000 >= lastFrame){
                 fps = frames;
                 frames = 0;
                 lastFrame = System.currentTimeMillis();
             }
-            try { 
-            Thread.sleep(2);
-           } catch (InterruptedException e) {
-               e.printStackTrace();
-           }
+                try { 
+                    Thread.sleep(2);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+           } 
         }
-    }
+    }    
     /**
      * Päivittää piirtoalustan.
      */
@@ -130,7 +112,7 @@ public class Piirtoalusta extends JPanel implements Runnable, Paivitettava {
     }
     /**
      * Metodilla vaihdetaan näkymä.
-     * 0 - valikko
+     * 0 - aloitusnäkymä
      * 1 - peli
      * 2 - ohjeet
      * 

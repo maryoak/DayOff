@@ -1,36 +1,39 @@
 
 package dayoffgroup.peli;
 
+import dayoffgroup.GUI.Kentta;
+import dayoffgroup.GUI.Rata;
+import dayoffgroup.GUI.Sivupalkki;
 import dayoffgroup.domain.Opiskelija;
 import dayoffgroup.domain.Tili;
-import dayoffgroup.GUI.Piirtoalusta;
+import java.io.File;
 /**
- *
- * @author hannamari
+ *Luokka luo uuden pelin.
  */
 public class Peli {
     
     public Opiskelija opiskelija;
     private Tili tili;
-    private int taso;
+    private Rata rata;
+    public Kentta kentta;
+    public Sivupalkki kauppa;
     
     public Peli() {
-        this.opiskelija = new Opiskelija();
-        this.tili = new Tili();
-        this.taso = 1;   
+        alusta();
+    }
+    
+    public void alusta() {
+        kentta = new Kentta();
+        rata = new Rata();
+        kauppa = new Sivupalkki();
+        tili = new Tili();
+        opiskelija = new Opiskelija();
+        
+        rata.lataaRata(new File("src/main/resources/radat/rata1.txt"));
     }
     
     public Tili getTili() {
         return this.tili;
-    }
-    
-    public int getTaso() {
-        return this.taso;
-    }
-    
-    public boolean seuraavaTaso() {
-        this.taso++;
-            return true;
     }
     
 }
