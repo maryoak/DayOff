@@ -6,17 +6,20 @@ import dayoffgroup.GUI.Rata;
 import dayoffgroup.GUI.Sivupalkki;
 import dayoffgroup.domain.Opiskelija;
 import dayoffgroup.domain.Tili;
+import dayoffgroup.domain.Uhka;
+import dayoffgroup.domain.AikainenHeratys;
 import java.io.File;
 /**
  *Luokka luo uuden pelin.
  */
 public class Peli {
     
-    public Opiskelija opiskelija;
-    private Tili tili;
-    private Rata rata;
+    public static Opiskelija opiskelija;
+    public static Tili tili;
+    public static Rata rata;
     public static Kentta kentta;
-    public Sivupalkki kauppa;
+    public Sivupalkki sivupalkki;
+    public static Uhka[] uhkat = new Uhka[30];
     
     public Peli() {
         alusta();
@@ -24,12 +27,16 @@ public class Peli {
     
     public void alusta() {
         kentta = new Kentta();
-        rata = new Rata();
-        kauppa = new Sivupalkki();
+        rata = new Rata(new File("src/main/resources/radat/rata1.txt"));
         tili = new Tili();
+        rata.lataaRata();
         opiskelija = new Opiskelija();
+        sivupalkki = new Sivupalkki();
         
-        rata.lataaRata(new File("src/main/resources/radat/rata1.txt"));
+        for (int i = 1; i < uhkat.length; i++) {
+            uhkat[i] = new AikainenHeratys();
+            uhkat[i].luoUhka(0);
+        }
     }
     
     public Tili getTili() {

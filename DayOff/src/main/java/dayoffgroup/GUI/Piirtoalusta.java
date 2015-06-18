@@ -1,9 +1,11 @@
 
 package dayoffgroup.GUI;
 
+import dayoffgroup.domain.AikainenHeratys;
 import javax.swing.JPanel;
 import java.awt.Graphics;
 import dayoffgroup.peli.Peli;
+import static dayoffgroup.peli.Peli.uhkat;
 import java.awt.Color;
 import java.awt.Point;
 /**
@@ -15,13 +17,14 @@ public class Piirtoalusta extends JPanel implements Runnable, Paivitettava {
     public Thread thread = new Thread(this);
     public static Kayttoliittyma kali;
     public static Peli peli;
+    public static Sivupalkki sivuPalkki;
     
     public static int korkeus;
     public static int leveys;
     
     public static Point hiiri = new Point(0,0);
     
-    private boolean ensimmainen = true;
+    private boolean ensimmainen;
     private int nakyma = 0;
     private int fps;
     /**
@@ -32,6 +35,9 @@ public class Piirtoalusta extends JPanel implements Runnable, Paivitettava {
     public Piirtoalusta(Kayttoliittyma kali) {
         thread.start();
         this.kali = kali;
+        this.ensimmainen = true;
+        kali.frame.addMouseMotionListener(new HiirenKuuntelija());
+        kali.frame.addMouseMotionListener(new HiirenKuuntelija());
     }
     /**
      * Alustaa uuden pelin.
@@ -63,7 +69,7 @@ public class Piirtoalusta extends JPanel implements Runnable, Paivitettava {
         
         if (this.nakyma == 0) { 
         //avaa aloitusnäkymän      
-        //    super.paintComponent(g);
+            super.paintComponent(g);
             g.setColor(Color.orange);
             g.drawString("DAYOFF TOWER DEFENCE available soon!", 250, 250);
             Valikko valikko = new Valikko(this);
@@ -71,13 +77,36 @@ public class Piirtoalusta extends JPanel implements Runnable, Paivitettava {
         } else if (this.nakyma == 1) {
         //peli "käynnistyy"
             peli.kentta.piirra(g);
-            peli.kauppa.piirra(g);
+            peli.sivupalkki.piirra(g);
+            peli.opiskelija.piirra(g);
+            
+            for (int i = 1; i < Peli.uhkat.length; i++) {
+                if (Peli.uhkat[i].kentalla) {
+                    Peli.uhkat[i].piirra(g);
+                }
+            }
         } else if (this.nakyma == 2) {
         //näyttää ohjeet kunhan valmistuu
             Ohjeet ohjeet = new Ohjeet();
         } 
         
         g.drawString("" + fps, 20, 20);
+    }
+    
+    public int luomisAika = 10, luomisKehys = 0;
+    public void uhkienLuoja() {
+        if (luomisKehys >= luomisAika) {
+            for (int i = 1; i < Peli.uhkat.length; i++) {
+                if (!Peli.uhkat[i].kentalla) {
+                    Peli.uhkat[i].luoUhka(0);
+                    break;
+                }
+            }
+            
+            luomisKehys = 0;
+        } else {
+            luomisKehys += 1;
+        }
     }
     
     @Override
@@ -87,7 +116,19 @@ public class Piirtoalusta extends JPanel implements Runnable, Paivitettava {
         int frames = 0;        
         
         while(true) {
-  
+            
+            if(!ensimmainen) {
+                uhkienLuoja();
+                
+                for (int i = 1; i < Peli.uhkat.length; i++) {
+                    if (Peli.uhkat[i].kentalla) {
+                        Peli.uhkat[i].liiku();
+                                System.out.println("uh");
+                    }
+                }
+                    
+            }
+            
             paivita();
             frames++;
             
@@ -97,7 +138,7 @@ public class Piirtoalusta extends JPanel implements Runnable, Paivitettava {
                 lastFrame = System.currentTimeMillis();
             }
                 try { 
-                    Thread.sleep(2);
+                    Thread.sleep(5);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
            } 

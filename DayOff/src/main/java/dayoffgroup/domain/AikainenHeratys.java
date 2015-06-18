@@ -14,21 +14,19 @@ public class AikainenHeratys extends Uhka {
     private int arvo;
 
     /**
-     * Konstruktori
+     * Konstruktori.
      * x ja y ilmaitsevat uhkan sijainnin
-     * @param x
-     * @param y
      */
-    public AikainenHeratys(int x, int y) {
-        super(x, y);
+    public AikainenHeratys() {
+        this.kentalla = false;
         this.elamaa = 10;
         this.arvo = 10;
     }
     
     @Override
     public void piirra(Graphics g) {
-        g.setColor(Color.YELLOW);
-        g.fillOval(this.x, this.y, 10, 10);
+            g.setColor(Color.black);
+            g.fillOval(this.x, this.y, 20, 20);
     }
     
     @Override

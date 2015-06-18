@@ -14,12 +14,9 @@ public class Tentti extends Uhka {
             
     /**
      *
-     * @param x
-     * @param y
-     * @param suunta
      */
-    public Tentti(int x, int y) {
-        super(x, y);
+    public Tentti() {
+        this.kentalla = false;
         this.elamaa = 50;
     }
     

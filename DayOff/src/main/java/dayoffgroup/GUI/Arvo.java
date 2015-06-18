@@ -10,5 +10,7 @@ public class Arvo {
     public static int maaPolku = 1;
     public static int ilmaIlma = -1;
     
-    
+    public static int uhkaIlma = -1;
+    public static int uhkaPolku = 0;
+
 }
