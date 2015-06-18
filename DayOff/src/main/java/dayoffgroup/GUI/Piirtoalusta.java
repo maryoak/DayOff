@@ -17,6 +17,7 @@ public class Piirtoalusta extends JPanel implements Runnable, Paivitettava {
     public Thread thread = new Thread(this);
     public static Kayttoliittyma kali;
     public static Peli peli;
+<<<<<<< HEAD
     public static Sivupalkki sivuPalkki;
     
     public static int korkeus;
@@ -25,6 +26,15 @@ public class Piirtoalusta extends JPanel implements Runnable, Paivitettava {
     public static Point hiiri = new Point(0,0);
     
     private boolean ensimmainen;
+=======
+    
+    public static int korkeus;
+    public static int leveys;
+    
+    public static Point hiiri = new Point(0,0);
+    
+    private boolean ensimmainen = true;
+>>>>>>> 058b65d1eeefbb289df6a6ed0e15f94002889ab5
     private int nakyma = 0;
     private int fps;
     /**
@@ -45,6 +55,15 @@ public class Piirtoalusta extends JPanel implements Runnable, Paivitettava {
     public void alusta() {
         peli = new Peli();
     }
+<<<<<<< HEAD
+=======
+    /**
+     * Alustaa uuden pelin.
+     */
+    public void alusta() {
+        peli = new Peli();
+    }
+>>>>>>> 058b65d1eeefbb289df6a6ed0e15f94002889ab5
     /**
      * Piirtää näkymät.
      * Näkymä 0 = aloitusnäkymä
@@ -69,7 +88,11 @@ public class Piirtoalusta extends JPanel implements Runnable, Paivitettava {
         
         if (this.nakyma == 0) { 
         //avaa aloitusnäkymän      
+<<<<<<< HEAD
             super.paintComponent(g);
+=======
+        //    super.paintComponent(g);
+>>>>>>> 058b65d1eeefbb289df6a6ed0e15f94002889ab5
             g.setColor(Color.orange);
             g.drawString("DAYOFF TOWER DEFENCE available soon!", 250, 250);
             Valikko valikko = new Valikko(this);
@@ -77,6 +100,7 @@ public class Piirtoalusta extends JPanel implements Runnable, Paivitettava {
         } else if (this.nakyma == 1) {
         //peli "käynnistyy"
             peli.kentta.piirra(g);
+<<<<<<< HEAD
             peli.sivupalkki.piirra(g);
             peli.opiskelija.piirra(g);
             
@@ -85,12 +109,16 @@ public class Piirtoalusta extends JPanel implements Runnable, Paivitettava {
                     Peli.uhkat[i].piirra(g);
                 }
             }
+=======
+            peli.kauppa.piirra(g);
+>>>>>>> 058b65d1eeefbb289df6a6ed0e15f94002889ab5
         } else if (this.nakyma == 2) {
         //näyttää ohjeet kunhan valmistuu
             Ohjeet ohjeet = new Ohjeet();
         } 
         
         g.drawString("" + fps, 20, 20);
+<<<<<<< HEAD
     }
     
     public int luomisAika = 10, luomisKehys = 0;
@@ -107,6 +135,8 @@ public class Piirtoalusta extends JPanel implements Runnable, Paivitettava {
         } else {
             luomisKehys += 1;
         }
+=======
+>>>>>>> 058b65d1eeefbb289df6a6ed0e15f94002889ab5
     }
     
     @Override
@@ -116,6 +146,7 @@ public class Piirtoalusta extends JPanel implements Runnable, Paivitettava {
         int frames = 0;        
         
         while(true) {
+<<<<<<< HEAD
             
             if(!ensimmainen) {
                 uhkienLuoja();
@@ -129,6 +160,9 @@ public class Piirtoalusta extends JPanel implements Runnable, Paivitettava {
                     
             }
             
+=======
+  
+>>>>>>> 058b65d1eeefbb289df6a6ed0e15f94002889ab5
             paivita();
             frames++;
             
@@ -138,7 +172,11 @@ public class Piirtoalusta extends JPanel implements Runnable, Paivitettava {
                 lastFrame = System.currentTimeMillis();
             }
                 try { 
+<<<<<<< HEAD
                     Thread.sleep(5);
+=======
+                    Thread.sleep(2);
+>>>>>>> 058b65d1eeefbb289df6a6ed0e15f94002889ab5
                 } catch (InterruptedException e) {
                     e.printStackTrace();
            } 

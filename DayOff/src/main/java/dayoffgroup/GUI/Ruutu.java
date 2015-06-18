@@ -23,10 +23,15 @@ public class Ruutu extends Rectangle {
     public void piirraRuutu(Graphics g){
         
         if (this.maaID == 0) {
+<<<<<<< HEAD
             g.setColor(Color.GREEN);
             g.fillRect(x, y, width, height);
             g.setColor(Color.LIGHT_GRAY);
             g.drawRect(x, y, width, height);
+=======
+            g.setColor(Color.green);
+            g.fillRect(x, y, width, height);
+>>>>>>> 058b65d1eeefbb289df6a6ed0e15f94002889ab5
         } else if (this.maaID == 1){
             g.setColor(Color.orange);
             g.fillRect(x, y, width, height);

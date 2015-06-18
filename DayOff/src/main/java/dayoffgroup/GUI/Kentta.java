@@ -9,9 +9,15 @@ import java.awt.Graphics;
  */
 public class Kentta {
     
+<<<<<<< HEAD
     public int leveys = 17;
     public int korkeus = 15;
     public int ruudunKoko = 32;
+=======
+    public int leveys = 15;
+    public int korkeus = 12;
+    public int ruudunKoko = 40;
+>>>>>>> 058b65d1eeefbb289df6a6ed0e15f94002889ab5
     
     public Ruutu[][] ruutu;
     
